@@ -58,17 +58,12 @@ export default function CountdownTimer() {
                    timeLeft.minutes === 0 && timeLeft.seconds === 0;
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-lg p-6 text-white">
+    <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl shadow-xl p-8 text-white">
       <div className="text-center">
-        <h3 className="text-lg font-semibold mb-2">
-          {isExpired ? 'Target Date Reached!' : 'Countdown to Target Date'}
-        </h3>
-        <p className="text-sm opacity-90 mb-4">May 23, 2026</p>
-        
-        {/* Debug display - remove later */}
-        <div className="text-xs opacity-50 mb-2">
-          Debug: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
-        </div>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">
+          {isExpired ? 'Target Date Reached!' : 'Countdown to ENCORE Exam'}
+        </h2>
+        <p className="text-lg opacity-90 mb-6">May 23, 2026</p>
         
         {!isExpired ? (
           <div className="grid grid-cols-4 gap-2 md:gap-4">

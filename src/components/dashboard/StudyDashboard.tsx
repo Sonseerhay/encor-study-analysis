@@ -88,15 +88,11 @@ export default function StudyDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && (
           <div className="space-y-8">
-            {/* Elegant Stats Cards */}
-            <ElegantStats stats={stats} />
-
-            {/* Countdown Timer */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2">
-                <CountdownTimer />
-              </div>
-              <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border-l-4 border-indigo-500 hover:shadow-xl transition-shadow duration-200">
+            {/* Countdown Timer as Headline */}
+            <CountdownTimer />
+            
+            {/* Study Mission */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border-l-4 border-indigo-500 hover:shadow-xl transition-shadow duration-200">
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 rounded-full mr-2 bg-indigo-500"></div>
                   <h3 className="font-medium text-gray-900 flex items-center">
