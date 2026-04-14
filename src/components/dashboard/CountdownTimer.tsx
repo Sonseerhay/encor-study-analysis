@@ -58,65 +58,50 @@ export default function CountdownTimer() {
                    timeLeft.minutes === 0 && timeLeft.seconds === 0;
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl shadow-2xl p-8 text-white border border-slate-700/50">
-      <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2">
-          {isExpired ? 'Target Date Reached!' : 'Countdown to ENCORE Exam'}
+    <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-gray-900/80 backdrop-blur-md p-8">
+      {/* Subtle inner glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/5 via-transparent to-green-600/5 pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+
+      <div className="relative text-center">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-500 font-semibold mb-1">Exam Countdown</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
+          {isExpired ? 'Target Date Reached!' : 'CCNP ENCOR 350-401'}
         </h2>
-        <p className="text-lg opacity-90 mb-6">May 23, 2026</p>
+        <p className="text-sm text-gray-400 mb-8">Target Date &mdash; May 23, 2026</p>
         
         {!isExpired ? (
-          <div className="grid grid-cols-4 gap-2 md:gap-4">
-            <div className="text-center">
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
-                  {formatNumber(timeLeft.days)}
+          <div className="grid grid-cols-4 gap-3 md:gap-5 max-w-xl mx-auto">
+            {[
+              { value: formatNumber(timeLeft.days), label: 'Days' },
+              { value: formatNumber(timeLeft.hours), label: 'Hours' },
+              { value: formatNumber(timeLeft.minutes), label: 'Minutes' },
+              { value: formatNumber(timeLeft.seconds), label: 'Seconds' },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <div className="bg-gray-800/80 rounded-xl p-3 md:p-4 border border-emerald-500/10">
+                  <div className="text-3xl md:text-5xl font-extrabold text-emerald-400 tabular-nums leading-none mb-1">
+                    {item.value}
+                  </div>
+                  <div className="text-[11px] uppercase tracking-widest text-gray-500 font-medium">{item.label}</div>
                 </div>
-                <div className="text-sm md:text-base text-slate-300 font-medium">Days</div>
               </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
-                  {formatNumber(timeLeft.hours)}
-                </div>
-                <div className="text-sm md:text-base text-slate-300 font-medium">Hours</div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
-                  {formatNumber(timeLeft.minutes)}
-                </div>
-                <div className="text-sm md:text-base text-slate-300 font-medium">Minutes</div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
-                  {formatNumber(timeLeft.seconds)}
-                </div>
-                <div className="text-sm md:text-base text-slate-300 font-medium">Seconds</div>
-              </div>
-            </div>
+            ))}
           </div>
         ) : (
           <div className="text-center py-4">
-            <div className="text-2xl font-bold">Time's Up!</div>
-            <p className="text-sm opacity-90 mt-2">The target date has been reached</p>
+            <div className="text-2xl font-bold text-emerald-400">Time&apos;s Up!</div>
+            <p className="text-sm text-gray-400 mt-2">The target date has been reached</p>
           </div>
         )}
         
         {!isExpired && (
-          <div className="mt-4 text-xs opacity-75">
+          <p className="mt-6 text-xs text-gray-500">
             {timeLeft.days > 0 && `${timeLeft.days} day${timeLeft.days !== 1 ? 's' : ''} remaining`}
             {timeLeft.days === 0 && timeLeft.hours > 0 && `${timeLeft.hours} hour${timeLeft.hours !== 1 ? 's' : ''} remaining`}
             {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes > 0 && `${timeLeft.minutes} minute${timeLeft.minutes !== 1 ? 's' : ''} remaining`}
             {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds > 0 && `${timeLeft.seconds} second${timeLeft.seconds !== 1 ? 's' : ''} remaining`}
-          </div>
+          </p>
         )}
       </div>
     </div>

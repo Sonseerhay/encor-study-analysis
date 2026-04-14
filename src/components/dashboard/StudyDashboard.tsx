@@ -75,8 +75,8 @@ export default function StudyDashboard() {
       <div className="flex items-center justify-center min-h-screen relative">
         <ElegantBackground />
         <div className="text-center relative z-10">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading your study data...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading your study data...</p>
         </div>
       </div>
     );
@@ -99,84 +99,67 @@ export default function StudyDashboard() {
             <CountdownTimer />
             
             {/* Study Mission */}
-            <div className="bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl p-6 border-l-4 border-blue-500 hover:shadow-2xl transition-all duration-200">
-              <div className="flex items-center mb-4">
-                <div className="w-3 h-3 rounded-full mr-2 bg-blue-500"></div>
-                <h3 className="font-medium text-white flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
                   </svg>
-                  Study Mission
-                </h3>
-              </div>
-                <p className="text-slate-300 text-sm mb-4">
-                  Maintain cybersecurity focus and consistent study habits. Every session strengthens your defense against knowledge gaps!
-                </p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400 flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                      </svg>
-                      Daily Target:
-                    </span>
-                    <span className="font-medium text-white">2 hours</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400 flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                      </svg>
-                      Weekly Target:
-                    </span>
-                    <span className="font-medium text-white">14 hours</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400 flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                      </svg>
-                      Current Progress:
-                    </span>
-                    <span className="font-medium text-cyan-400">{stats?.totalHours.toFixed(1) || 0}h</span>
-                  </div>
                 </div>
-          </div>
+                <h3 className="font-semibold text-white">Study Mission</h3>
+              </div>
+              <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                Maintain cybersecurity focus and consistent study habits. Every session strengthens your defense against knowledge gaps!
+              </p>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Daily Target</span>
+                  <span className="font-semibold text-gray-200">2 hours</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Weekly Target</span>
+                  <span className="font-semibold text-gray-200">14 hours</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Current Progress</span>
+                  <span className="font-semibold text-emerald-400">{stats?.totalHours.toFixed(1) || 0}h</span>
+                </div>
+              </div>
+            </div>
 
             {/* Recent Sessions */}
-            <div className="bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50">
-              <div className="px-6 py-4 border-b border-slate-700/50 flex justify-between items-center">
-                <h2 className="text-lg font-medium text-white">Recent Study Sessions</h2>
+            <div className="bg-gray-900/70 backdrop-blur-md rounded-xl border border-emerald-500/10 overflow-hidden">
+              <div className="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+                <h2 className="text-base font-semibold text-white">Recent Study Sessions</h2>
                 <button 
                   onClick={() => setActiveTab('sessions')}
-                  className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  View All
+                  View All &rarr;
                 </button>
               </div>
               <div className="px-6 py-4">
                 {sessions.length > 0 ? (
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {sessions.slice(0, 5).map((session) => (
-                      <div key={session.id} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0">
+                      <div key={session.id} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
                         <div className="flex-1">
-                          <h4 className="font-medium text-gray-900">{session.title}</h4>
+                          <h4 className="font-medium text-gray-200 text-sm">{session.title}</h4>
                           <div className="flex items-center gap-4 mt-1">
-                            <p className="text-sm text-gray-500">
+                            <p className="text-xs text-gray-500">
                               {new Date(session.started_at).toLocaleDateString()}
                             </p>
-                            <p className="text-sm text-gray-500">
-                              {session.duration_minutes} minutes
+                            <p className="text-xs text-gray-500">
+                              {session.duration_minutes} min
                             </p>
                             {session.difficulty_level && (
                               <div className="flex items-center gap-1">
-                                <span className="text-sm text-gray-500">Difficulty:</span>
-                                <div className="flex gap-1">
+                                <div className="flex gap-0.5">
                                   {[1, 2, 3, 4, 5].map((level) => (
                                     <div
                                       key={level}
-                                      className={`w-2 h-2 rounded-full ${
-                                        session.difficulty_level && level <= session.difficulty_level ? 'bg-orange-400' : 'bg-gray-300'
+                                      className={`w-1.5 h-1.5 rounded-full ${
+                                        session.difficulty_level && level <= session.difficulty_level ? 'bg-emerald-400' : 'bg-gray-700'
                                       }`}
                                     />
                                   ))}
@@ -185,28 +168,26 @@ export default function StudyDashboard() {
                             )}
                           </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                            session.completion_status === 'completed' 
-                              ? 'bg-green-100 text-green-800' 
-                              : session.completion_status === 'partial'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-gray-100 text-gray-800'
-                          }`}>
-                            {session.completion_status}
-                          </span>
-                        </div>
+                        <span className={`px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
+                          session.completion_status === 'completed' 
+                            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
+                            : session.completion_status === 'partial'
+                            ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
+                            : 'bg-gray-500/10 text-gray-400 border border-gray-500/20'
+                        }`}>
+                          {session.completion_status}
+                        </span>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8">
-                    <div className="text-gray-400 mb-4">
-                      <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="text-center py-10">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-emerald-500/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <p className="text-gray-500">No study sessions yet. Start tracking your progress!</p>
+                    <p className="text-gray-500 text-sm">No study sessions yet. Start tracking your progress!</p>
                     <div className="flex gap-3 justify-center mt-4">
                       <StudySessionForm onSessionAdded={fetchDashboardData} />
                       <SampleDataButton onDataAdded={fetchDashboardData} />
@@ -221,36 +202,36 @@ export default function StudyDashboard() {
         {activeTab === 'sessions' && (
           <div className="space-y-6">
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-900">Study Sessions</h2>
+              <h2 className="text-2xl font-bold text-white">Study Sessions</h2>
               <StudySessionForm onSessionAdded={fetchDashboardData} />
             </div>
             
             {sessions.length > 0 ? (
-              <div className="bg-white rounded-lg shadow">
+              <div className="bg-gray-900/70 backdrop-blur-md rounded-xl border border-emerald-500/10">
                 <div className="px-6 py-4">
                   <div className="space-y-4">
                     {sessions.map((session) => (
-                      <div key={session.id} className="border-b border-gray-200 pb-4 last:border-0">
+                      <div key={session.id} className="border-b border-white/5 pb-4 last:border-0">
                         <div className="flex justify-between items-start">
                           <div className="flex-1">
-                            <h3 className="font-medium text-gray-900">{session.title}</h3>
+                            <h3 className="font-medium text-gray-200">{session.title}</h3>
                             {session.notes && (
-                              <p className="text-gray-600 mt-1">{session.notes}</p>
+                              <p className="text-gray-400 mt-1 text-sm">{session.notes}</p>
                             )}
-                            <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                            <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
                               <span>{new Date(session.started_at).toLocaleDateString()}</span>
-                              <span>{session.duration_minutes} minutes</span>
+                              <span>{session.duration_minutes} min</span>
                               {session.difficulty_level && (
                                 <span>Level: {session.difficulty_level}/5</span>
                               )}
                             </div>
                           </div>
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                          <span className={`px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
                             session.completion_status === 'completed' 
-                              ? 'bg-green-100 text-green-800' 
+                              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
                               : session.completion_status === 'partial'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-gray-100 text-gray-800'
+                              ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
+                              : 'bg-gray-500/10 text-gray-400 border border-gray-500/20'
                           }`}>
                             {session.completion_status}
                           </span>
@@ -272,22 +253,22 @@ export default function StudyDashboard() {
         {activeTab === 'topics' && (
           <div className="space-y-6">
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-900">Study Topics</h2>
+              <h2 className="text-2xl font-bold text-white">Study Topics</h2>
               <TopicForm onTopicAdded={fetchDashboardData} />
             </div>
             
             {topics.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {topics.map((topic) => (
-                  <div key={topic.id} className="bg-white rounded-lg shadow p-6 border-l-4" style={{ borderLeftColor: topic.color }}>
+                  <div key={topic.id} className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10 hover:border-emerald-500/25 transition-colors" style={{ borderLeftWidth: '3px', borderLeftColor: topic.color }}>
                     <div className="flex items-center mb-3">
                       <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: topic.color }}></div>
-                      <h3 className="font-medium text-gray-900">{topic.name}</h3>
+                      <h3 className="font-medium text-gray-200">{topic.name}</h3>
                     </div>
                     {topic.description && (
-                      <p className="text-gray-600 text-sm">{topic.description}</p>
+                      <p className="text-gray-400 text-sm">{topic.description}</p>
                     )}
-                    <div className="mt-4 text-sm text-gray-500">
+                    <div className="mt-4 text-xs text-gray-500">
                       Created {new Date(topic.created_at).toLocaleDateString()}
                     </div>
                   </div>

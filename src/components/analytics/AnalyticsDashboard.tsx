@@ -102,23 +102,23 @@ export default function AnalyticsDashboard() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'routing': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'bgp': return 'bg-purple-100 text-purple-800 border-purple-200';
-      case 'high-availability': return 'bg-green-100 text-green-800 border-green-200';
-      case 'vpn': return 'bg-orange-100 text-orange-800 border-orange-200';
-      case 'monitoring': return 'bg-teal-100 text-teal-800 border-teal-200';
-      case 'security': return 'bg-red-100 text-red-800 border-red-200';
-      case 'automation': return 'bg-indigo-100 text-indigo-800 border-indigo-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'routing': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+      case 'bgp': return 'bg-purple-500/10 text-purple-400 border-purple-500/20';
+      case 'high-availability': return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+      case 'vpn': return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
+      case 'monitoring': return 'bg-teal-500/10 text-teal-400 border-teal-500/20';
+      case 'security': return 'bg-red-500/10 text-red-400 border-red-500/20';
+      case 'automation': return 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20';
+      default: return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
     }
   };
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'beginner': return 'bg-green-100 text-green-800';
-      case 'intermediate': return 'bg-yellow-100 text-yellow-800';
-      case 'advanced': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'beginner': return 'bg-emerald-500/10 text-emerald-400';
+      case 'intermediate': return 'bg-yellow-500/10 text-yellow-400';
+      case 'advanced': return 'bg-red-500/10 text-red-400';
+      default: return 'bg-gray-500/10 text-gray-400';
     }
   };
 
@@ -126,106 +126,76 @@ export default function AnalyticsDashboard() {
     <div className="space-y-6">
       {/* Overview Stats */}
       {activeTab === 'overview' && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Practice Tests</h3>
-              <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 10.5h-15V5h15v22.5zm-1.5-21h-12v19.5h12V6.5z"/>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
+              <h3 className="text-sm font-semibold text-white">Practice Tests</h3>
             </div>
-            <div className="space-y-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">{completedTests}</div>
-                <div className="text-sm text-gray-600">Completed</div>
+            <div className="text-4xl font-extrabold text-emerald-400 mb-1">{completedTests}<span className="text-lg text-gray-500 font-normal">/{practiceTests.length}</span></div>
+            <p className="text-xs text-gray-500">Tests Completed</p>
+            {averageTestScore > 0 && (
+              <div className="mt-3 pt-3 border-t border-white/5">
+                <span className="text-sm font-semibold text-white">{averageTestScore.toFixed(1)}%</span>
+                <span className="text-xs text-gray-500 ml-1">avg score</span>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{practiceTests.length}</div>
-                <div className="text-sm text-gray-600">Total Tests</div>
+            )}
+          </div>
+
+          <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
               </div>
-              {averageTestScore > 0 && (
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">{averageTestScore.toFixed(1)}%</div>
-                  <div className="text-sm text-gray-600">Average Score</div>
-                </div>
-              )}
+              <h3 className="text-sm font-semibold text-white">Lessons</h3>
+            </div>
+            <div className="text-4xl font-extrabold text-emerald-400 mb-1">{completedLessons}<span className="text-lg text-gray-500 font-normal">/{lessons.length}</span></div>
+            <p className="text-xs text-gray-500 mb-3">Lessons Completed</p>
+            <div className="w-full bg-gray-800 rounded-full h-1.5">
+              <div className="bg-emerald-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${(completedLessons / lessons.length) * 100}%` }}></div>
             </div>
           </div>
 
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Lessons</h3>
-              <div className="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               </div>
+              <h3 className="text-sm font-semibold text-white">Labs</h3>
             </div>
-            <div className="space-y-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pink-600">{completedLessons}</div>
-                <div className="text-sm text-gray-600">Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{lessons.length}</div>
-                <div className="text-sm text-gray-600">Total Lessons</div>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${(completedLessons / lessons.length) * 100}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Labs</h3>
-              <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                </svg>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-teal-600">{completedLabs}</div>
-                <div className="text-sm text-gray-600">Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{labs.length}</div>
-                <div className="text-sm text-gray-600">Total Labs</div>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${(completedLabs / labs.length) * 100}%` }}
-                ></div>
-              </div>
+            <div className="text-4xl font-extrabold text-emerald-400 mb-1">{completedLabs}<span className="text-lg text-gray-500 font-normal">/{labs.length}</span></div>
+            <p className="text-xs text-gray-500 mb-3">Labs Completed</p>
+            <div className="w-full bg-gray-800 rounded-full h-1.5">
+              <div className="bg-emerald-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${(completedLabs / labs.length) * 100}%` }}></div>
             </div>
           </div>
         </div>
       )}
 
       {/* Navigation Tabs */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-100">
+      <div className="bg-gray-900/70 backdrop-blur-md rounded-xl border border-emerald-500/10">
         <div className="flex space-x-1 p-1">
           {[
-            { id: 'overview', label: 'Overview', icon: 'chart' },
-            { id: 'labs', label: 'Labs', icon: 'lab' },
-            { id: 'tests', label: 'Practice Tests', icon: 'test' },
-            { id: 'lessons', label: 'Lessons', icon: 'lesson' }
+            { id: 'overview', label: 'Overview' },
+            { id: 'labs', label: 'Labs' },
+            { id: 'tests', label: 'Practice Tests' },
+            { id: 'lessons', label: 'Lessons' }
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex-1 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'bg-purple-500 text-white shadow-md'
-                  : 'text-gray-600 hover:bg-purple-50'
+                  ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20'
+                  : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'
               }`}
             >
               {tab.label}
@@ -236,57 +206,54 @@ export default function AnalyticsDashboard() {
 
       {/* Labs Section */}
       {activeTab === 'labs' && (
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">CCNP Labs</h3>
-          <div className="space-y-3">
+        <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+          <h3 className="text-lg font-semibold text-white mb-6">CCNP Labs</h3>
+          <div className="space-y-2">
             {labs.map((lab) => (
               <div
                 key={lab.id}
-                className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-200 ${
+                className={`flex items-center justify-between p-4 rounded-lg border transition-all duration-200 ${
                   lab.completed 
-                    ? 'bg-green-50 border-green-200' 
-                    : 'bg-white border-gray-200 hover:border-purple-200'
+                    ? 'bg-emerald-500/5 border-emerald-500/20' 
+                    : 'bg-white/[0.02] border-white/5 hover:border-emerald-500/20'
                 }`}
               >
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => toggleLabCompletion(lab.id)}
-                    className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-colors ${
+                    className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors flex-shrink-0 ${
                       lab.completed 
-                        ? 'bg-green-500 border-green-500' 
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-emerald-500 border-emerald-500' 
+                        : 'border-gray-600 hover:border-emerald-400'
                     }`}
                   >
                     {lab.completed && (
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                       </svg>
                     )}
                   </button>
                   
-                  <div className="flex-1">
-                    <h4 className={`font-medium ${lab.completed ? 'text-gray-500 line-through' : 'text-gray-900'}`}>
+                  <div className="flex-1 min-w-0">
+                    <h4 className={`font-medium text-sm ${lab.completed ? 'text-gray-500 line-through' : 'text-gray-200'}`}>
                       {lab.name}
                     </h4>
-                    <p className="text-sm text-gray-600 mt-1">{lab.description}</p>
-                    
-                    <div className="flex items-center space-x-4 mt-2">
-                      <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(lab.category)}`}>
+                    <p className="text-xs text-gray-500 mt-1 truncate">{lab.description}</p>
+                    <div className="flex items-center space-x-2 mt-2">
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full border ${getCategoryColor(lab.category)}`}>
                         {lab.category}
                       </span>
-                      <span className={`text-xs px-2 py-1 rounded-full ${getDifficultyColor(lab.difficulty)}`}>
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full ${getDifficultyColor(lab.difficulty)}`}>
                         {lab.difficulty}
                       </span>
-                      <span className="text-xs text-gray-500">
-                        {lab.estimatedDuration}m
-                      </span>
+                      <span className="text-[10px] text-gray-600">{lab.estimatedDuration}m</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="text-right">
-                  <div className="text-sm text-gray-500">Equipment:</div>
-                  <div className="text-xs text-gray-600 mt-1">
+                <div className="text-right hidden md:block flex-shrink-0 ml-4">
+                  <div className="text-[10px] text-gray-600 uppercase tracking-wider">Equipment</div>
+                  <div className="text-xs text-gray-400 mt-0.5">
                     {lab.equipment.join(', ')}
                   </div>
                 </div>
@@ -298,36 +265,28 @@ export default function AnalyticsDashboard() {
 
       {/* Practice Tests Section */}
       {activeTab === 'tests' && (
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">Practice Tests</h3>
-          <div className="space-y-3">
+        <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+          <h3 className="text-lg font-semibold text-white mb-6">Practice Tests</h3>
+          <div className="space-y-2">
             {practiceTests.map((test) => (
               <div
                 key={test.id}
-                className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-200 ${
+                className={`flex items-center justify-between p-4 rounded-lg border transition-all duration-200 ${
                   test.completed 
-                    ? 'bg-green-50 border-green-200' 
-                    : 'bg-white border-gray-200 hover:border-purple-200'
+                    ? 'bg-emerald-500/5 border-emerald-500/20' 
+                    : 'bg-white/[0.02] border-white/5 hover:border-emerald-500/20'
                 }`}
               >
                 <div className="flex-1">
-                  <h4 className={`font-medium ${test.completed ? 'text-gray-500 line-through' : 'text-gray-900'}`}>
+                  <h4 className={`font-medium text-sm ${test.completed ? 'text-gray-500 line-through' : 'text-gray-200'}`}>
                     {test.name}
                   </h4>
-                  <div className="flex items-center space-x-4 mt-2">
-                    <span className="text-xs text-gray-500">
-                      {test.questions} questions
-                    </span>
-                    <span className="text-xs text-gray-500">
-                      {test.duration}m
-                    </span>
-                    <span className="text-xs text-gray-500">
-                      {test.passingScore}% to pass
-                    </span>
+                  <div className="flex items-center space-x-3 mt-2">
+                    <span className="text-[10px] text-gray-500">{test.questions} questions</span>
+                    <span className="text-[10px] text-gray-500">{test.duration}m</span>
+                    <span className="text-[10px] text-gray-500">{test.passingScore}% to pass</span>
                     {test.attempts > 0 && (
-                      <span className="text-xs text-gray-500">
-                        {test.attempts} attempts
-                      </span>
+                      <span className="text-[10px] text-gray-500">{test.attempts} attempts</span>
                     )}
                   </div>
                 </div>
@@ -335,28 +294,23 @@ export default function AnalyticsDashboard() {
                 <div className="flex items-center space-x-3">
                   {test.bestScore && (
                     <div className="text-right">
-                      <div className="text-sm font-medium text-gray-900">
-                        {test.bestScore}%
-                      </div>
-                      <div className="text-xs text-gray-500">Best Score</div>
+                      <div className="text-sm font-semibold text-white">{test.bestScore}%</div>
+                      <div className="text-[10px] text-gray-500">Best</div>
                     </div>
                   )}
                   
                   {!test.completed ? (
                     <button
                       onClick={() => {
-                        // Simulate taking a test
-                        const score = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
+                        const score = Math.floor(Math.random() * 30) + 70;
                         toggleTestCompletion(test.id, score);
                       }}
-                      className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
+                      className="px-3 py-1.5 bg-emerald-500/15 text-emerald-400 rounded-lg hover:bg-emerald-500/25 transition-colors text-xs font-medium border border-emerald-500/20"
                     >
                       Take Test
                     </button>
                   ) : (
-                    <div className="text-green-600 font-medium">
-                      Completed
-                    </div>
+                    <span className="text-emerald-400 text-xs font-medium">Completed</span>
                   )}
                 </div>
               </div>
@@ -367,53 +321,51 @@ export default function AnalyticsDashboard() {
 
       {/* Lessons Section */}
       {activeTab === 'lessons' && (
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-purple-100">
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">Lessons</h3>
-          <div className="space-y-3">
+        <div className="bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-emerald-500/10">
+          <h3 className="text-lg font-semibold text-white mb-6">Lessons</h3>
+          <div className="space-y-2">
             {lessons.map((lesson) => (
               <div
                 key={lesson.id}
-                className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all duration-200 ${
+                className={`flex items-center justify-between p-4 rounded-lg border transition-all duration-200 ${
                   lesson.completed 
-                    ? 'bg-green-50 border-green-200' 
-                    : 'bg-white border-gray-200 hover:border-purple-200'
+                    ? 'bg-emerald-500/5 border-emerald-500/20' 
+                    : 'bg-white/[0.02] border-white/5 hover:border-emerald-500/20'
                 }`}
               >
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => toggleLessonCompletion(lesson.id)}
-                    className={`w-6 h-6 rounded border-2 flex items-center justify-center transition-colors ${
+                    className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors flex-shrink-0 ${
                       lesson.completed 
-                        ? 'bg-green-500 border-green-500' 
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'bg-emerald-500 border-emerald-500' 
+                        : 'border-gray-600 hover:border-emerald-400'
                     }`}
                   >
                     {lesson.completed && (
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                       </svg>
                     )}
                   </button>
                   
                   <div className="flex-1">
-                    <h4 className={`font-medium ${lesson.completed ? 'text-gray-500 line-through' : 'text-gray-900'}`}>
+                    <h4 className={`font-medium text-sm ${lesson.completed ? 'text-gray-500 line-through' : 'text-gray-200'}`}>
                       {lesson.title}
                     </h4>
-                    <div className="flex items-center space-x-4 mt-2">
-                      <span className={`text-xs px-2 py-1 rounded-full border ${
-                        lesson.domain === 'architecture' ? 'bg-purple-100 text-purple-800 border-purple-200' :
-                        lesson.domain === 'virtualization' ? 'bg-blue-100 text-blue-800 border-blue-200' :
-                        lesson.domain === 'infrastructure' ? 'bg-green-100 text-green-800 border-green-200' :
-                        lesson.domain === 'network-assurance' ? 'bg-orange-100 text-orange-800 border-orange-200' :
-                        lesson.domain === 'security' ? 'bg-red-100 text-red-800 border-red-200' :
-                        lesson.domain === 'automation-ai' ? 'bg-indigo-100 text-indigo-800 border-indigo-200' :
-                        'bg-gray-100 text-gray-800 border-gray-200'
+                    <div className="flex items-center space-x-2 mt-2">
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full border ${
+                        lesson.domain === 'architecture' ? 'bg-purple-500/10 text-purple-400 border-purple-500/20' :
+                        lesson.domain === 'virtualization' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                        lesson.domain === 'infrastructure' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                        lesson.domain === 'network-assurance' ? 'bg-orange-500/10 text-orange-400 border-orange-500/20' :
+                        lesson.domain === 'security' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
+                        lesson.domain === 'automation-ai' ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' :
+                        'bg-gray-500/10 text-gray-400 border-gray-500/20'
                       }`}>
                         {lesson.domain}
                       </span>
-                      <span className="text-xs text-gray-500">
-                        {lesson.duration}m
-                      </span>
+                      <span className="text-[10px] text-gray-600">{lesson.duration}m</span>
                     </div>
                   </div>
                 </div>

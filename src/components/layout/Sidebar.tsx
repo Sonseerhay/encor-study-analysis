@@ -74,29 +74,29 @@ export default function Sidebar({ activeSection, setActiveSection }: {
   };
 
   return (
-    <div className={`bg-slate-800/90 backdrop-blur-md border-r border-slate-700 transition-all duration-300 ${
+    <div className={`bg-gray-900/80 backdrop-blur-md border-r border-emerald-900/30 transition-all duration-300 ${
       isCollapsed ? 'w-16' : 'w-64'
     }`}>
       <div className="p-4">
         <div className="flex items-center justify-between mb-8">
           {!isCollapsed && (
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <div className="w-9 h-9 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-900/40">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                 </svg>
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-white">
+                <h2 className="text-lg font-bold tracking-wide text-white">
                   ENCORE
                 </h2>
-                <p className="text-xs text-slate-400">Study Tracker</p>
+                <p className="text-[11px] text-emerald-400/70 font-medium tracking-wider uppercase">Study Tracker</p>
               </div>
             </div>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-2 rounded-lg hover:bg-slate-700 transition-colors text-slate-400"
+            className="p-2 rounded-lg hover:bg-emerald-900/30 transition-colors text-gray-400"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -104,15 +104,16 @@ export default function Sidebar({ activeSection, setActiveSection }: {
           </button>
         </div>
 
-        <nav className="space-y-2">
+        <p className="text-[10px] uppercase tracking-widest text-gray-500 font-semibold mb-3 px-3">Navigation</p>
+        <nav className="space-y-1">
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}
               className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                 activeSection === item.id
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                  : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                  ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 shadow-sm shadow-emerald-900/20'
+                  : 'text-gray-400 hover:bg-white/5 hover:text-gray-200'
               }`}
             >
               <div className="flex-shrink-0">
@@ -127,15 +128,15 @@ export default function Sidebar({ activeSection, setActiveSection }: {
       </div>
 
       {/* User profile section */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-700">
+      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-emerald-900/20">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-white text-sm font-semibold">U</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg shadow-emerald-900/30">
+            <span className="text-white text-sm font-semibold">S</span>
           </div>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">User</p>
-              <p className="text-xs text-slate-400 truncate">student@encore.com</p>
+              <p className="text-sm font-medium text-gray-200 truncate">Student</p>
+              <p className="text-xs text-gray-500 truncate">CCNP ENCOR 350-401</p>
             </div>
           )}
         </div>
