@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 interface TimeLeft {
   days: number;
@@ -9,6 +9,8 @@ interface TimeLeft {
   seconds: number;
 }
 
+const targetDate = new Date('2026-05-23T00:00:00');
+
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
@@ -16,8 +18,6 @@ export default function CountdownTimer() {
     minutes: 0,
     seconds: 0
   });
-
-  const targetDate = new Date('2026-05-23T00:00:00');
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -29,7 +29,15 @@ export default function CountdownTimer() {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
         
-        setTimeLeft({ days, hours, minutes, seconds });
+        const newTimeLeft = { days, hours, minutes, seconds };
+        
+        // Only update state if the time has actually changed
+        setTimeLeft(prevTimeLeft => {
+          if (JSON.stringify(prevTimeLeft) !== JSON.stringify(newTimeLeft)) {
+            return newTimeLeft;
+          }
+          return prevTimeLeft;
+        });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
@@ -39,7 +47,7 @@ export default function CountdownTimer() {
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, []); // Empty dependency array since targetDate is now outside
 
   const formatNumber = (num: number) => {
     return num.toString().padStart(2, '0');
