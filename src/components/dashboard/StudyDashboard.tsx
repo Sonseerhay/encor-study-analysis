@@ -12,13 +12,14 @@ import ElegantHeader from '@/components/layout/ElegantHeader';
 import ElegantStats from '@/components/dashboard/ElegantStats';
 import StudyPlan from '@/components/study/StudyPlan';
 import StudySchedule from '@/components/study/StudySchedule';
+import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard';
 
 export default function StudyDashboard() {
   const [sessions, setSessions] = useState<StudySession[]>([]);
   const [stats, setStats] = useState<StudyStats | null>(null);
   const [topics, setTopics] = useState<StudyTopic[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'overview' | 'sessions' | 'topics'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'sessions' | 'topics' | 'analytics'>('overview');
 
   // Mock user ID for now - in real app this would come from authentication
   const userId = 'mock-user-id';
@@ -308,6 +309,12 @@ export default function StudyDashboard() {
         {activeTab === 'topics' && (
           <div className="space-y-6">
             <StudySchedule />
+          </div>
+        )}
+
+        {activeTab === 'analytics' && (
+          <div className="space-y-6">
+            <AnalyticsDashboard />
           </div>
         )}
         </div>

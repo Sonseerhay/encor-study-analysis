@@ -12,8 +12,8 @@ export default function Sidebar({ activeSection, setActiveSection }: {
     { id: 'overview', label: 'Overview', icon: 'home' },
     { id: 'sessions', label: 'Study Plan', icon: 'plan' },
     { id: 'topics', label: 'Schedule', icon: 'calendar' },
-    { id: 'goals', label: 'Goals', icon: 'target' },
     { id: 'analytics', label: 'Analytics', icon: 'chart' },
+    { id: 'goals', label: 'Goals', icon: 'target' },
     { id: 'settings', label: 'Settings', icon: 'settings' }
   ];
 
