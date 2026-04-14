@@ -5,6 +5,7 @@ import { StudySession, StudyStats, StudyTopic } from '@/lib/types';
 import StudySessionForm from './StudySessionForm';
 import TopicForm from './TopicForm';
 import SampleDataButton from './SampleDataButton';
+import CountdownTimer from './CountdownTimer';
 
 export default function StudyDashboard() {
   const [sessions, setSessions] = useState<StudySession[]>([]);
@@ -182,6 +183,36 @@ export default function StudyDashboard() {
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                       <span className="text-orange-600 font-bold">A</span>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Countdown Timer */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <CountdownTimer />
+              </div>
+              <div className="bg-white rounded-lg shadow p-6 border-l-4 border-indigo-500">
+                <div className="flex items-center mb-4">
+                  <div className="w-3 h-3 rounded-full mr-2 bg-indigo-500"></div>
+                  <h3 className="font-medium text-gray-900">Study Goal</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-4">
+                  Stay focused and consistent with your study schedule. Every session counts toward your ENCORE success!
+                </p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Daily Target:</span>
+                    <span className="font-medium">2 hours</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Weekly Target:</span>
+                    <span className="font-medium">14 hours</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Current Progress:</span>
+                    <span className="font-medium text-green-600">{stats?.totalHours.toFixed(1) || 0}h</span>
                   </div>
                 </div>
               </div>
