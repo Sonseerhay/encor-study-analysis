@@ -10,6 +10,8 @@ import ElegantBackground from '@/components/ui/ElegantBackground';
 import Sidebar from '@/components/layout/Sidebar';
 import ElegantHeader from '@/components/layout/ElegantHeader';
 import ElegantStats from '@/components/dashboard/ElegantStats';
+import StudyPlan from '@/components/study/StudyPlan';
+import StudySchedule from '@/components/study/StudySchedule';
 
 export default function StudyDashboard() {
   const [sessions, setSessions] = useState<StudySession[]>([]);
@@ -294,6 +296,18 @@ export default function StudyDashboard() {
                 <TopicForm onTopicAdded={fetchDashboardData} />
               </div>
             )}
+          </div>
+        )}
+
+        {activeTab === 'sessions' && (
+          <div className="space-y-6">
+            <StudyPlan />
+          </div>
+        )}
+
+        {activeTab === 'topics' && (
+          <div className="space-y-6">
+            <StudySchedule />
           </div>
         )}
         </div>
