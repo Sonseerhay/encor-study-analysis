@@ -26,99 +26,70 @@ export interface StudyResource {
 
 export const ENCORE_BLUEPRINT: BlueprintDomain[] = [
   {
-    id: 'network-security',
-    name: 'Network Security',
-    description: 'Implement and maintain network security solutions',
-    percentage: 30,
+    id: 'architecture',
+    name: 'Architecture',
+    description: 'Design and implement enterprise network architectures',
+    percentage: 15,
     topics: [
       {
-        id: 'firewall-concepts',
-        name: 'Firewall Concepts and Technologies',
-        description: 'Understanding firewall types, deployment models, and security policies',
+        id: 'network-design',
+        name: 'Network Design Principles',
+        description: 'Enterprise network design methodologies and best practices',
         subtopics: [
-          'Stateful vs Stateless firewalls',
-          'Next Generation Firewalls (NGFW)',
-          'Firewall deployment modes',
-          'Security policy implementation',
-          'NAT and PAT configuration',
-          'Zone-based firewalls'
+          'Hierarchical network design',
+          'Enterprise campus design',
+          'Data center design',
+          'Branch office design',
+          'Network segmentation',
+          'High availability design'
         ],
         difficulty: 'intermediate',
-        estimatedHours: 8,
-        resources: [
-          {
-            type: 'video',
-            title: 'Cisco Firewall Fundamentals',
-            duration: 45,
-            completed: false
-          },
-          {
-            type: 'documentation',
-            title: 'Cisco Firepower Configuration Guide',
-            completed: false
-          },
-          {
-            type: 'lab',
-            title: 'Configure ASA Firewall Policies',
-            duration: 120,
-            completed: false
-          }
-        ]
-      },
-      {
-        id: 'vpn-technologies',
-        name: 'VPN Technologies',
-        description: 'Site-to-site and remote access VPN implementations',
-        subtopics: [
-          'IPsec VPN fundamentals',
-          'SSL VPN concepts',
-          'DMVPN implementation',
-          'GET VPN',
-          'Clientless SSL VPN',
-          'VPN troubleshooting'
-        ],
-        difficulty: 'advanced',
         estimatedHours: 12,
         resources: [
           {
             type: 'video',
-            title: 'IPsec VPN Deep Dive',
+            title: 'Cisco Enterprise Network Design',
             duration: 60,
             completed: false
           },
           {
+            type: 'documentation',
+            title: 'Cisco Validated Designs Guide',
+            completed: false
+          },
+          {
             type: 'lab',
-            title: 'Configure Site-to-Site IPsec VPN',
+            title: 'Design Enterprise Campus Network',
             duration: 180,
             completed: false
           }
         ]
       },
       {
-        id: 'ips-ids',
-        name: 'IPS/IDS Solutions',
-        description: 'Intrusion Prevention and Detection Systems',
+        id: 'sd-access',
+        name: 'Software-Defined Access',
+        description: 'Cisco SD-Access architecture and implementation',
         subtopics: [
-          'IPS vs IDS concepts',
-          'Signature-based detection',
-          'Anomaly-based detection',
-          'IPS policy configuration',
-          'Tuning and false positives',
-          'IPS deployment strategies'
+          'SD-Access fundamentals',
+          'Fabric underlay and overlay',
+          'SD-Access components',
+          'Policy enforcement',
+          'Automation with DNA Center',
+          'SD-Access migration strategies'
         ],
         difficulty: 'advanced',
-        estimatedHours: 10,
+        estimatedHours: 15,
         resources: [
           {
             type: 'video',
-            title: 'Cisco Firepower IPS Configuration',
+            title: 'Cisco SD-Access Deep Dive',
             duration: 90,
             completed: false
           },
           {
-            type: 'practice',
-            title: 'IPS Signature Analysis',
-            duration: 60,
+            type: 'lab',
+            title: 'Implement SD-Access Fabric',
+            duration: 240,
             completed: false
           }
         ]
@@ -126,92 +97,64 @@ export const ENCORE_BLUEPRINT: BlueprintDomain[] = [
     ]
   },
   {
-    id: 'security-architectures',
-    name: 'Security Architectures',
-    description: 'Design and implement security architectures',
-    percentage: 25,
+    id: 'virtualization',
+    name: 'Virtualization',
+    description: 'Implement network virtualization solutions',
+    percentage: 10,
     topics: [
       {
-        id: 'secure-access',
-        name: 'Secure Access',
-        description: 'Implement secure network access solutions',
+        id: 'network-virtualization',
+        name: 'Network Virtualization Technologies',
+        description: 'Virtual networking concepts and implementations',
         subtopics: [
-          '802.1X authentication',
-          'Cisco ISE fundamentals',
-          'BYOD policies',
-          'Guest access management',
-          'Network device admission control',
-          'Profiling and posture assessment'
+          'VXLAN fundamentals',
+          'EVPN control plane',
+          'Multi-tenant networks',
+          'Virtual routing and forwarding',
+          'Network function virtualization',
+          'Service chaining'
         ],
-        difficulty: 'intermediate',
-        estimatedHours: 15,
+        difficulty: 'advanced',
+        estimatedHours: 18,
         resources: [
           {
             type: 'video',
-            title: 'Cisco ISE Deployment Guide',
+            title: 'VXLAN and EVPN Fundamentals',
             duration: 75,
             completed: false
           },
           {
             type: 'lab',
-            title: 'Configure 802.1X with Cisco ISE',
-            duration: 240,
+            title: 'Configure VXLAN BGP EVPN',
+            duration: 200,
             completed: false
           }
         ]
       },
       {
-        id: 'email-security',
-        name: 'Email Security',
-        description: 'Implement comprehensive email security solutions',
+        id: 'dc-virtualization',
+        name: 'Data Center Virtualization',
+        description: 'Virtualization in data center environments',
         subtopics: [
-          'Email security threats',
-          'Cisco ESA configuration',
-          'Anti-spam and anti-phishing',
-          'Data loss prevention',
-          'Email encryption',
-          'Content filtering'
+          'Nexus switches virtualization',
+          'VPC (Virtual Port Channel)',
+          'FEX (Fabric Extender)',
+          'Virtual device contexts',
+          'Multi-chassis EtherChannel',
+          'Data center automation'
         ],
-        difficulty: 'intermediate',
-        estimatedHours: 8,
+        difficulty: 'advanced',
+        estimatedHours: 12,
         resources: [
           {
             type: 'video',
-            title: 'Cisco Email Security Appliance',
-            duration: 60,
+            title: 'Nexus Virtualization Technologies',
+            duration: 80,
             completed: false
           },
           {
-            type: 'documentation',
-            title: 'ESA Configuration Guide',
-            completed: false
-          }
-        ]
-      },
-      {
-        id: 'web-security',
-        name: 'Web Security',
-        description: 'Implement web security and content filtering',
-        subtopics: [
-          'Web security threats',
-          'Cisco WSA configuration',
-          'URL filtering',
-          'Malware detection',
-          'Application visibility and control',
-          'Web proxy concepts'
-        ],
-        difficulty: 'intermediate',
-        estimatedHours: 10,
-        resources: [
-          {
-            type: 'video',
-            title: 'Cisco Web Security Appliance',
-            duration: 55,
-            completed: false
-          },
-          {
-            type: 'lab',
-            title: 'Configure Web Content Filtering',
+            type: 'practice',
+            title: 'Configure VPC and FEX',
             duration: 150,
             completed: false
           }
@@ -220,64 +163,94 @@ export const ENCORE_BLUEPRINT: BlueprintDomain[] = [
     ]
   },
   {
-    id: 'security-automation',
-    name: 'Security Automation and Programmability',
-    description: 'Implement security automation and programmability solutions',
-    percentage: 20,
+    id: 'infrastructure',
+    name: 'Infrastructure',
+    description: 'Implement and manage network infrastructure',
+    percentage: 30,
     topics: [
       {
-        id: 'sdn-security',
-        name: 'SDN Security',
-        description: 'Software-Defined Networking security concepts',
+        id: 'routing-protocols',
+        name: 'Advanced Routing Protocols',
+        description: 'Enterprise routing protocol implementation and optimization',
         subtopics: [
-          'SDN fundamentals',
-          'Cisco ACI security',
-          'Micro-segmentation',
-          'Policy-based automation',
-          'Network virtualization security',
-          'Intent-based networking'
+          'OSPFv3 for IPv6',
+          'Multi-area OSPF',
+          'BGP route reflectors',
+          'BGP Confederations',
+          'Route redistribution',
+          'Policy-based routing'
         ],
-        difficulty: 'advanced',
-        estimatedHours: 12,
+        difficulty: 'intermediate',
+        estimatedHours: 20,
         resources: [
           {
             type: 'video',
-            title: 'Cisco ACI Security Model',
-            duration: 80,
+            title: 'Advanced OSPF Configuration',
+            duration: 85,
             completed: false
           },
           {
-            type: 'documentation',
-            title: 'ACI Security Configuration Guide',
+            type: 'lab',
+            title: 'Configure Multi-Area OSPFv3',
+            duration: 180,
             completed: false
           }
         ]
       },
       {
-        id: 'api-security',
-        name: 'API Security and Automation',
-        description: 'Security automation using APIs and scripting',
+        id: 'infrastructure-services',
+        name: 'Infrastructure Services',
+        description: 'Critical network infrastructure services',
         subtopics: [
-          'REST API fundamentals',
-          'Cisco security APIs',
-          'Python for network security',
-          'Automation workflows',
-          'API authentication',
-          'Scripting best practices'
+          'DHCPv6 and DHCPv4',
+          'DNS for IPv6',
+          'NTP synchronization',
+          'Syslog and network monitoring',
+          'SNMPv3',
+          'NetFlow and Flexible NetFlow'
         ],
-        difficulty: 'advanced',
+        difficulty: 'intermediate',
         estimatedHours: 15,
         resources: [
           {
             type: 'video',
-            title: 'Cisco Security API Programming',
+            title: 'Network Infrastructure Services',
             duration: 70,
             completed: false
           },
           {
+            type: 'lab',
+            title: 'Configure DHCPv6 and DNS',
+            duration: 120,
+            completed: false
+          }
+        ]
+      },
+      {
+        id: 'infrastructure-security',
+        name: 'Infrastructure Security',
+        description: 'Secure network infrastructure implementation',
+        subtopics: [
+          'Device hardening',
+          'Control plane policing',
+          'Management plane security',
+          'Infrastructure protection',
+          'Port security',
+          'DHCP snooping and IP source guard'
+        ],
+        difficulty: 'intermediate',
+        estimatedHours: 18,
+        resources: [
+          {
+            type: 'video',
+            title: 'Infrastructure Security Best Practices',
+            duration: 90,
+            completed: false
+          },
+          {
             type: 'practice',
-            title: 'Python Security Automation Scripts',
-            duration: 180,
+            title: 'Configure Control Plane Policing',
+            duration: 150,
             completed: false
           }
         ]
@@ -285,93 +258,196 @@ export const ENCORE_BLUEPRINT: BlueprintDomain[] = [
     ]
   },
   {
-    id: 'threat-intelligence',
-    name: 'Threat Intelligence and Defense',
-    description: 'Implement threat intelligence and defense solutions',
-    percentage: 25,
+    id: 'network-assurance',
+    name: 'Network Assurance',
+    description: 'Implement network monitoring and assurance solutions',
+    percentage: 10,
     topics: [
       {
-        id: 'threat-analysis',
-        name: 'Threat Analysis and Intelligence',
-        description: 'Analyze and respond to security threats',
+        id: 'network-monitoring',
+        name: 'Network Monitoring and Telemetry',
+        description: 'Advanced network monitoring and telemetry solutions',
         subtopics: [
-          'Threat intelligence sources',
-          'IOC (Indicators of Compromise)',
-          'Threat hunting techniques',
-          'Malware analysis basics',
-          'Security incident response',
-          'Threat modeling'
+          'Telemetry streaming',
+          'Streaming analytics',
+          'Network assurance',
+          'Performance monitoring',
+          'Event correlation',
+          'Health and performance metrics'
         ],
-        difficulty: 'intermediate',
-        estimatedHours: 10,
+        difficulty: 'advanced',
+        estimatedHours: 15,
         resources: [
           {
             type: 'video',
-            title: 'Threat Intelligence Fundamentals',
-            duration: 65,
+            title: 'Cisco Telemetry and Assurance',
+            duration: 80,
             completed: false
           },
           {
-            type: 'practice',
-            title: 'IOC Analysis Exercise',
-            duration: 90,
+            type: 'lab',
+            title: 'Configure Telemetry Streaming',
+            duration: 180,
             completed: false
           }
         ]
       },
       {
-        id: 'advanced-threat-protection',
-        name: 'Advanced Threat Protection',
-        description: 'Implement advanced threat protection solutions',
+        id: 'troubleshooting-tools',
+        name: 'Advanced Troubleshooting Tools',
+        description: 'Enterprise network troubleshooting methodologies',
         subtopics: [
-          'AMP (Advanced Malware Protection)',
-          'Cisco Threat Grid',
-          'Sandbox analysis',
-          'File reputation',
-          'Behavioral analysis',
-          'Zero-day protection'
+          'Structured troubleshooting',
+          'Performance analysis',
+          'Packet analysis',
+          'Route analysis',
+          'Troubleshooting methodologies',
+          'Diagnostic tools'
         ],
-        difficulty: 'advanced',
+        difficulty: 'intermediate',
         estimatedHours: 12,
         resources: [
           {
             type: 'video',
-            title: 'Cisco AMP Configuration',
+            title: 'Advanced Network Troubleshooting',
+            duration: 75,
+            completed: false
+          },
+          {
+            type: 'practice',
+            title: 'Troubleshooting Lab Scenarios',
+            duration: 200,
+            completed: false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'security',
+    name: 'Security',
+    description: 'Implement comprehensive network security solutions',
+    percentage: 20,
+    topics: [
+      {
+        id: 'network-security',
+        name: 'Network Security Implementation',
+        description: 'Enterprise network security solutions',
+        subtopics: [
+          'Firewall technologies',
+          'VPN implementations',
+          'IPS/IDS deployment',
+          'Network access control',
+          'Security policies',
+          'Threat defense'
+        ],
+        difficulty: 'intermediate',
+        estimatedHours: 18,
+        resources: [
+          {
+            type: 'video',
+            title: 'Cisco Network Security Solutions',
             duration: 85,
             completed: false
           },
           {
             type: 'lab',
-            title: 'Configure Advanced Threat Protection',
+            title: 'Configure Firepower Threat Defense',
             duration: 200,
             completed: false
           }
         ]
       },
       {
-        id: 'incident-response',
-        name: 'Security Incident Response',
-        description: 'Plan and execute security incident response',
+        id: 'security-automation',
+        name: 'Security Automation',
+        description: 'Automated security operations and responses',
         subtopics: [
-          'Incident response lifecycle',
-          'CSIRT team structure',
-          'Containment strategies',
-          'Forensics basics',
-          'Recovery procedures',
-          'Post-incident analysis'
+          'Security automation',
+          'Threat intelligence',
+          'Incident response automation',
+          'Security analytics',
+          'Orchestration workflows',
+          'Security APIs'
         ],
-        difficulty: 'intermediate',
-        estimatedHours: 8,
+        difficulty: 'advanced',
+        estimatedHours: 15,
         resources: [
           {
-            type: 'documentation',
-            title: 'NIST Incident Response Guide',
+            type: 'video',
+            title: 'Security Automation with STEALTHWATCH',
+            duration: 70,
             completed: false
           },
           {
             type: 'practice',
-            title: 'Incident Response Simulation',
-            duration: 120,
+            title: 'Security Automation Workflows',
+            duration: 160,
+            completed: false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'automation-ai',
+    name: 'Automation & AI',
+    description: 'Implement network automation and AI operations',
+    percentage: 15,
+    topics: [
+      {
+        id: 'network-automation',
+        name: 'Network Automation',
+        description: 'Enterprise network automation solutions',
+        subtopics: [
+          'Python for network automation',
+          'REST API and RESTCONF',
+          'NETCONF and YANG',
+          'Ansible network automation',
+          'Scripting best practices',
+          'Automation frameworks'
+        ],
+        difficulty: 'advanced',
+        estimatedHours: 20,
+        resources: [
+          {
+            type: 'video',
+            title: 'Network Automation Fundamentals',
+            duration: 90,
+            completed: false
+          },
+          {
+            type: 'lab',
+            title: 'Python Network Automation Scripts',
+            duration: 240,
+            completed: false
+          }
+        ]
+      },
+      {
+        id: 'ai-operations',
+        name: 'AI Operations',
+        description: 'AI-powered network operations and analytics',
+        subtopics: [
+          'AI/ML in networking',
+          'Predictive analytics',
+          'Anomaly detection',
+          'AI-powered troubleshooting',
+          'Cognitive analytics',
+          'Machine learning models'
+        ],
+        difficulty: 'advanced',
+        estimatedHours: 15,
+        resources: [
+          {
+            type: 'video',
+            title: 'AI Operations in Networking',
+            duration: 80,
+            completed: false
+          },
+          {
+            type: 'documentation',
+            title: 'Cisco AI and Machine Learning Guide',
             completed: false
           }
         ]
@@ -385,18 +461,18 @@ export const STUDY_SCHEDULE = {
   examDate: '2026-05-23',
   startDate: '2026-03-02',
   weeklyGoals: [
-    { week: 1, domain: 'network-security', focus: 'firewall-concepts', hours: 15 },
-    { week: 2, domain: 'network-security', focus: 'vpn-technologies', hours: 20 },
-    { week: 3, domain: 'network-security', focus: 'ips-ids', hours: 18 },
-    { week: 4, domain: 'security-architectures', focus: 'secure-access', hours: 22 },
-    { week: 5, domain: 'security-architectures', focus: 'email-security', hours: 15 },
-    { week: 6, domain: 'security-architectures', focus: 'web-security', hours: 18 },
-    { week: 7, domain: 'security-automation', focus: 'sdn-security', hours: 20 },
-    { week: 8, domain: 'security-automation', focus: 'api-security', hours: 25 },
-    { week: 9, domain: 'threat-intelligence', focus: 'threat-analysis', hours: 18 },
-    { week: 10, domain: 'threat-intelligence', focus: 'advanced-threat-protection', hours: 20 },
-    { week: 11, domain: 'threat-intelligence', focus: 'incident-response', hours: 15 },
-    { week: 12, domain: 'review', focus: 'comprehensive-review', hours: 30 }
+    { week: 1, domain: 'architecture', focus: 'network-design', hours: 18 },
+    { week: 2, domain: 'architecture', focus: 'sd-access', hours: 20 },
+    { week: 3, domain: 'virtualization', focus: 'network-virtualization', hours: 22 },
+    { week: 4, domain: 'virtualization', focus: 'dc-virtualization', hours: 15 },
+    { week: 5, domain: 'infrastructure', focus: 'routing-protocols', hours: 25 },
+    { week: 6, domain: 'infrastructure', focus: 'infrastructure-services', hours: 20 },
+    { week: 7, domain: 'infrastructure', focus: 'infrastructure-security', hours: 22 },
+    { week: 8, domain: 'network-assurance', focus: 'network-monitoring', hours: 18 },
+    { week: 9, domain: 'network-assurance', focus: 'troubleshooting-tools', hours: 15 },
+    { week: 10, domain: 'security', focus: 'network-security', hours: 25 },
+    { week: 11, domain: 'security', focus: 'security-automation', hours: 20 },
+    { week: 12, domain: 'automation-ai', focus: 'comprehensive-review', hours: 30 }
   ]
 };
 
