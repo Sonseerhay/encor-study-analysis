@@ -68,38 +68,38 @@ export default function CountdownTimer() {
         {!isExpired ? (
           <div className="grid grid-cols-4 gap-2 md:gap-4">
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-2 md:p-3">
-                <div className="text-2xl md:text-3xl font-bold">
+              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
+                <div className="text-3xl md:text-4xl font-bold text-green-600">
                   {formatNumber(timeLeft.days)}
                 </div>
-                <div className="text-xs md:text-sm opacity-90">Days</div>
+                <div className="text-sm md:text-base text-gray-700 font-medium">Days</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-2 md:p-3">
-                <div className="text-2xl md:text-3xl font-bold">
+              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
+                <div className="text-3xl md:text-4xl font-bold text-green-600">
                   {formatNumber(timeLeft.hours)}
                 </div>
-                <div className="text-xs md:text-sm opacity-90">Hours</div>
+                <div className="text-sm md:text-base text-gray-700 font-medium">Hours</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-2 md:p-3">
-                <div className="text-2xl md:text-3xl font-bold">
+              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
+                <div className="text-3xl md:text-4xl font-bold text-green-600">
                   {formatNumber(timeLeft.minutes)}
                 </div>
-                <div className="text-xs md:text-sm opacity-90">Minutes</div>
+                <div className="text-sm md:text-base text-gray-700 font-medium">Minutes</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-2 md:p-3">
-                <div className="text-2xl md:text-3xl font-bold">
+              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
+                <div className="text-3xl md:text-4xl font-bold text-green-600">
                   {formatNumber(timeLeft.seconds)}
                 </div>
-                <div className="text-xs md:text-sm opacity-90">Seconds</div>
+                <div className="text-sm md:text-base text-gray-700 font-medium">Seconds</div>
               </div>
             </div>
           </div>

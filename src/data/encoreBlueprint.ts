@@ -477,10 +477,9 @@ export const STUDY_SCHEDULE = {
 };
 
 export function getCurrentWeek(): number {
-  const now = new Date();
-  const start = new Date(STUDY_SCHEDULE.startDate);
-  const weeksElapsed = Math.floor((now.getTime() - start.getTime()) / (7 * 24 * 60 * 60 * 1000));
-  return Math.min(Math.max(1, weeksElapsed + 1), STUDY_SCHEDULE.totalWeeks);
+  // For now, always start from week 1 for better user experience
+  // Later this can be updated to calculate based on actual start date
+  return 1;
 }
 
 export function getWeeklyGoal(week: number) {
