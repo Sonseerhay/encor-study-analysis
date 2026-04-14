@@ -1,5 +1,10 @@
 import StudyDashboard from '@/components/dashboard/StudyDashboard';
+import ErrorBoundary from '@/components/ui/ErrorBoundary';
 
 export default function Home() {
-  return <StudyDashboard />;
+  return (
+    <ErrorBoundary>
+      <StudyDashboard />
+    </ErrorBoundary>
+  );
 }
