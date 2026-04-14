@@ -21,6 +21,10 @@ export default function StudyDashboard() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'overview' | 'sessions' | 'topics' | 'analytics'>('overview');
 
+  const handleSetActiveSection = (section: string) => {
+    setActiveTab(section as 'overview' | 'sessions' | 'topics' | 'analytics');
+  };
+
   // Mock user ID for now - in real app this would come from authentication
   const userId = 'mock-user-id';
 
@@ -81,11 +85,14 @@ export default function StudyDashboard() {
   return (
     <div className="min-h-screen relative">
       <ElegantBackground />
-      <div className="relative z-10">
-        <ElegantHeader onSessionAdded={fetchDashboardData} onTopicAdded={fetchDashboardData} />
+      <div className="relative z-10 flex">
+        <Sidebar activeSection={activeTab} setActiveSection={handleSetActiveSection} />
+        
+        <div className="flex-1">
+          <ElegantHeader onSessionAdded={fetchDashboardData} onTopicAdded={fetchDashboardData} />
 
-        {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Main Content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && (
           <div className="space-y-8">
             {/* Countdown Timer as Headline */}
@@ -312,6 +319,7 @@ export default function StudyDashboard() {
             <AnalyticsDashboard />
           </div>
         )}
+          </div>
         </div>
       </div>
     </div>
