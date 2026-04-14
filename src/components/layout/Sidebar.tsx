@@ -74,31 +74,31 @@ export default function Sidebar({ activeSection, setActiveSection }: {
   };
 
   return (
-    <div className={`bg-white/95 backdrop-blur-sm border-r border-purple-100 transition-all duration-300 ${
+    <div className={`bg-slate-800/90 backdrop-blur-md border-r border-slate-700 transition-all duration-300 ${
       isCollapsed ? 'w-16' : 'w-64'
     }`}>
       <div className="p-4">
         <div className="flex items-center justify-between mb-8">
           {!isCollapsed && (
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               </div>
               <div>
-                <h2 className="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h2 className="text-lg font-semibold text-white">
                   ENCORE
                 </h2>
-                <p className="text-xs text-gray-500">Study Tracker</p>
+                <p className="text-xs text-slate-400">Study Tracker</p>
               </div>
             </div>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-2 rounded-lg hover:bg-purple-50 transition-colors"
+            className="p-2 rounded-lg hover:bg-slate-700 transition-colors text-slate-400"
           >
-            <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -109,10 +109,10 @@ export default function Sidebar({ activeSection, setActiveSection }: {
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}
-              className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg transition-all duration-200 ${
+              className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                 activeSection === item.id
-                  ? 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border-l-4 border-purple-500'
-                  : 'text-gray-600 hover:bg-purple-50 hover:text-purple-700'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
+                  : 'text-slate-300 hover:bg-slate-700 hover:text-white'
               }`}
             >
               <div className="flex-shrink-0">
@@ -127,15 +127,15 @@ export default function Sidebar({ activeSection, setActiveSection }: {
       </div>
 
       {/* User profile section */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-purple-100">
+      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-700">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
             <span className="text-white text-sm font-semibold">U</span>
           </div>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 truncate">User</p>
-              <p className="text-xs text-gray-500 truncate">student@encore.com</p>
+              <p className="text-sm font-medium text-white truncate">User</p>
+              <p className="text-xs text-slate-400 truncate">student@encore.com</p>
             </div>
           )}
         </div>

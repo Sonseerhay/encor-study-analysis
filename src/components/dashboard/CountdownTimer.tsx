@@ -58,7 +58,7 @@ export default function CountdownTimer() {
                    timeLeft.minutes === 0 && timeLeft.seconds === 0;
 
   return (
-    <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl shadow-xl p-8 text-white">
+    <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl shadow-2xl p-8 text-white border border-slate-700/50">
       <div className="text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">
           {isExpired ? 'Target Date Reached!' : 'Countdown to ENCORE Exam'}
@@ -68,38 +68,38 @@ export default function CountdownTimer() {
         {!isExpired ? (
           <div className="grid grid-cols-4 gap-2 md:gap-4">
             <div className="text-center">
-              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-green-600">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
+                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
                   {formatNumber(timeLeft.days)}
                 </div>
-                <div className="text-sm md:text-base text-gray-700 font-medium">Days</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium">Days</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-green-600">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
+                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
                   {formatNumber(timeLeft.hours)}
                 </div>
-                <div className="text-sm md:text-base text-gray-700 font-medium">Hours</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium">Hours</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-green-600">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
+                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
                   {formatNumber(timeLeft.minutes)}
                 </div>
-                <div className="text-sm md:text-base text-gray-700 font-medium">Minutes</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium">Minutes</div>
               </div>
             </div>
             
             <div className="text-center">
-              <div className="bg-white/90 rounded-lg p-3 md:p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-green-600">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border border-slate-600/50">
+                <div className="text-3xl md:text-4xl font-bold text-cyan-300">
                   {formatNumber(timeLeft.seconds)}
                 </div>
-                <div className="text-sm md:text-base text-gray-700 font-medium">Seconds</div>
+                <div className="text-sm md:text-base text-slate-300 font-medium">Seconds</div>
               </div>
             </div>
           </div>

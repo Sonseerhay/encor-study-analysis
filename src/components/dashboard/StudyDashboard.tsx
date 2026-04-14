@@ -99,57 +99,57 @@ export default function StudyDashboard() {
             <CountdownTimer />
             
             {/* Study Mission */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border-l-4 border-indigo-500 hover:shadow-xl transition-shadow duration-200">
+            <div className="bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl p-6 border-l-4 border-blue-500 hover:shadow-2xl transition-all duration-200">
               <div className="flex items-center mb-4">
-                <div className="w-3 h-3 rounded-full mr-2 bg-indigo-500"></div>
-                <h3 className="font-medium text-gray-900 flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-3 h-3 rounded-full mr-2 bg-blue-500"></div>
+                <h3 className="font-medium text-white flex items-center">
+                  <svg className="w-4 h-4 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                   Study Mission
                 </h3>
               </div>
-                <p className="text-gray-600 text-sm mb-4">
-              Maintain cybersecurity focus and consistent study habits. Every session strengthens your defense against knowledge gaps!
-            </p>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-500 flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                  </svg>
-                  Daily Target:
-                </span>
-                <span className="font-medium">2 hours</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-500 flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                  </svg>
-                  Weekly Target:
-                </span>
-                <span className="font-medium">14 hours</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-500 flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                  </svg>
-                  Current Progress:
-                </span>
-                <span className="font-medium text-green-600">{stats?.totalHours.toFixed(1) || 0}h</span>
-              </div>
-            </div>
+                <p className="text-slate-300 text-sm mb-4">
+                  Maintain cybersecurity focus and consistent study habits. Every session strengthens your defense against knowledge gaps!
+                </p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400 flex items-center">
+                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                      </svg>
+                      Daily Target:
+                    </span>
+                    <span className="font-medium text-white">2 hours</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400 flex items-center">
+                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                      </svg>
+                      Weekly Target:
+                    </span>
+                    <span className="font-medium text-white">14 hours</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400 flex items-center">
+                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                      </svg>
+                      Current Progress:
+                    </span>
+                    <span className="font-medium text-cyan-400">{stats?.totalHours.toFixed(1) || 0}h</span>
+                  </div>
+                </div>
           </div>
 
             {/* Recent Sessions */}
-            <div className="bg-white rounded-lg shadow">
-              <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                <h2 className="text-lg font-medium text-gray-900">Recent Study Sessions</h2>
+            <div className="bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50">
+              <div className="px-6 py-4 border-b border-slate-700/50 flex justify-between items-center">
+                <h2 className="text-lg font-medium text-white">Recent Study Sessions</h2>
                 <button 
                   onClick={() => setActiveTab('sessions')}
-                  className="text-sm text-blue-600 hover:text-blue-800"
+                  className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                   View All
                 </button>
